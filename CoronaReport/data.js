@@ -1,3 +1,4 @@
+//function for deciding first country's number in this graph 
 function setNum(storage) {
     switch (storage) {
         case '0':
@@ -21,22 +22,23 @@ function setNum(storage) {
     }
 }
 
-async function test() {
+async function graph() {
+//get data from api
     const infoArray = await fetch('https://api.covid19api.com/summary')
     .then(function(response) {
       return response.json();
     }).then(function (data) {
         return data.Countries;
     });
-
+//set first country's number
     let number = setNum(sessionStorage.getItem('entry'));
-
+//set country's name for graph
     let countryName = [];
     for (let i = 0; i < 27; i++) {
         countryName[i] =  infoArray[number].Country;
         number++;
     }
-
+//make data for this graph
     function showData(token) {
         number = setNum(sessionStorage.getItem('entry'));
         switch (token) {
@@ -89,7 +91,7 @@ async function test() {
                 return totalRecovered;
         }
     }
-
+//Chart.js's template
     var ctx = document.getElementById('myChart');
     new Chart(ctx, {
         type: 'bar',
@@ -115,4 +117,4 @@ async function test() {
     });
 }
 
-test();
+graph();
