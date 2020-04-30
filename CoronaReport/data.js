@@ -40,6 +40,7 @@ async function graph() {
     }
 //make data for this graph
     function showData(token) {
+	//reset number
         number = setNum(sessionStorage.getItem('entry'));
         switch (token) {
             case 'NewConfirmed':
