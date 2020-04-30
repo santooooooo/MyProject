@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoronaReport</title>
+</head>
+<body>
+    <p>Select a category you want to know.</p>
+    <div id="vue">
+        <form style="display: flex;">
+            <div v-for="category in categories">
+                <input type="radio" name="category" :value=category v-model="select">{{category}}
+            </div>
+            <button @click="selectCategory" style="margin:0 20px;">check!</button>
+            <button @click="back" style="margin:0 10px;">back</button>
+            <button @click="next" style="margin:0 10px;">next</button>
+        </form>
+    </div>
+    <canvas id="myChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="data.js"></script>
+    
+</body>
+</html>
