@@ -20,12 +20,7 @@ function setNum(storage) {
             return 216;
     }
 }
-function getData(firstArray, secondArray, index, property) {
-    for (let i = 0; i < 27; i++) {
-        firstArray[i] = secondArray[index].property;
-        index++;
-    }
-}
+
 async function test() {
     const infoArray = await fetch('https://api.covid19api.com/summary')
     .then(function(response) {
